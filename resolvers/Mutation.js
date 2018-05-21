@@ -6,6 +6,7 @@ async function signup(parent, args, context, info) {
   // 1
   const password = await bcrypt.hash(args.password, 10);
   // 2
+  console.log(context);
   const user = await context.db.mutation.createUser(
     {
       data: { ...args, password }
